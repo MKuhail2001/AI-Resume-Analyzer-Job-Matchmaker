@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Resume Analysis Results - AI Resume Analyzer</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+  />
+  <style>
+    .dashboard-container {
+      padding: 20px;
+      min-height: calc(100vh - 76px);
+      background-color: #f8f9fa;
+    }
+    .dashboard-card {
+      height: 100%;
+      transition: transform 0.2s;
+    }
+    .dashboard-card:hover {
+      transform: translateY(-5px);
+    }
+    .card-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #0d6efd;
+    }
+    .score-badge {
+      font-size: 1.2rem;
+      padding: 0.5rem 1rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html"><i class="bi bi-briefcase-fill"></i> Resume Matchmaker</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon bg-light"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="#">Analysis Dashboard</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Dashboard Content -->
+  <div class="dashboard-container">
+    <div class="container">
+      <!-- Summary Row -->
+      <div class="row mb-4">
+        <div class="col-12">
+          <div class="card dashboard-card" data-aos="fade-up">
+            <div class="card-body">
+              <div class="row align-items-center">
+                <div class="col-md-2 text-center">
+                  <i class="bi bi-card-text card-icon"></i>
+                </div>
+                <div class="col-md-7">
+                  <h5 class="card-title">Resume Summary</h5>
+                  <p id="summaryText" class="card-text">Loading summary...</p>
+                </div>
+                <div class="col-md-3 text-center">
+                  <button id="generateBtn" class="btn btn-success w-100 mt-3">
+                    <i class="bi bi-stars"></i> Generate Improved Resume
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Download Section -->
+      <div id="downloadSection" class="row mt-4" style="display: none;" data-aos="zoom-in">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body text-center">
+              <h5 class="card-title">🎉 Your improved resume is ready!</h5>
+              <a id="downloadBtn" class="btn btn-outline-primary" download="Improved_Resume.pdf" href="#">
+                <i class="bi bi-download"></i> Download Improved Resume
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 mb-4">
+          <h5 class="footer-heading"><i class="bi bi-briefcase-fill"></i> Resume Matchmaker</h5>
+          <p class="footer-text">Empowering job seekers with AI-driven resume analysis and career guidance.</p>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/resume-matchmaker" target="_blank" class="social-link"
+              ><i class="bi bi-linkedin"></i
+            ></a>
+            <a href="https://twitter.com/resumematchmaker" target="_blank" class="social-link"
+              ><i class="bi bi-twitter"></i
+            ></a>
+            <a href="https://facebook.com/resumematchmaker" target="_blank" class="social-link"
+              ><i class="bi bi-facebook"></i
+            ></a>
+            <a href="https://instagram.com/resumematchmaker" target="_blank" class="social-link"
+              ><i class="bi bi-instagram"></i
+            ></a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-4 mb-4">
+          <h6 class="footer-heading">Quick Links</h6>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Analysis Dashboard</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-6 col-md-8 mb-4">
+          <h6 class="footer-heading">Contact Us</h6>
+          <p>Email: support@resumematchmaker.com</p>
+          <p>Phone: +1 555-123-4567</p>
+          <p>Address: 123 Career St, Jobtown, USA</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="results.js"></script>
+</body>
+</html>
