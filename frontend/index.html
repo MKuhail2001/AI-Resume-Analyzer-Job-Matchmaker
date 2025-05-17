@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Resume Analyzer & Job Matchmaker</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: linear-gradient(to right, #004080, #0066cc);
+      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      padding: 1rem 0;
+      height: 76px;
+    }
+    .navbar.hidden {
+      transform: translateY(-100%);
+    }
+    .landing-page {
+      flex: 1 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: calc(100vh - 76px - 260px); /* 76px navbar, 260px footer */
+      padding-top: 76px;
+      padding-bottom: 0;
+      background: linear-gradient(135deg, #004080 0%, #0066cc 100%);
+    }
+    .landing-content {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .footer {
+      flex-shrink: 0;
+      min-height: 260px;
+      background: #1a1a1a;
+      color: #fff;
+      padding: 60px 0 30px;
+      position: relative;
+    }
+    /* Remove extra margin from landing-content if needed */
+    .landing-content .mb-5 {
+      margin-bottom: 2rem !important;
+    }
+    #home {
+      padding-top: 80px;
+    }
+    
+    .navbar-brand, .nav-link {
+      color: #fff !important;
+      font-weight: 500;
+    }
+    
+    .nav-link.active {
+      color: #fff !important;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .section-box {
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#landing"><i class="bi bi-briefcase-fill"></i> Resume Matchmaker</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link active" href="#landing">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="analyze.html">Analyze Resume</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Landing Page -->
+<section id="landing" class="landing-page">
+  <div class="container">
+    <div class="landing-content text-center">
+      <h1 class="display-3 mb-4" data-aos="fade-down">AI Resume Analyzer & Job Matchmaker</h1>
+      <p class="lead" data-aos="fade-up" data-aos-delay="200" style="margin-bottom: 1.25rem;">Transform your career with AI-powered resume analysis and job matching</p>
+      
+      <a href="analyze.html" class="btn btn-primary btn-lg" style="min-width:200px; font-size:1.25rem; margin-top: 1.25rem; margin-bottom: 1.25rem;" data-aos="fade-up" data-aos-delay="300">
+        GET STARTED
+      </a>
+      
+      <div class="stats-container mb-2" data-aos="fade-up" data-aos-delay="400" style="margin-top: 1.5rem;">
+        <div class="row justify-content-center">
+          <div class="col-6 col-md-4 col-lg-3 mb-3">
+            <div class="stat-item p-3" style="font-size:1rem; min-width:120px;">
+              <i class="bi bi-people-fill" style="font-size:2rem;"></i>
+              <h2 style="font-size:1.5rem; margin:0.5rem 0 0.25rem;">10K+</h2>
+              <p style="font-size:1rem; margin:0;">Users Helped</p>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3 mb-3">
+            <div class="stat-item p-3" style="font-size:1rem; min-width:120px;">
+              <i class="bi bi-briefcase-fill" style="font-size:2rem;"></i>
+              <h2 style="font-size:1.5rem; margin:0.5rem 0 0.25rem;">5K+</h2>
+              <p style="font-size:1rem; margin:0;">Jobs Matched</p>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3 mb-3">
+            <div class="stat-item p-3" style="font-size:1rem; min-width:120px;">
+              <i class="bi bi-graph-up" style="font-size:2rem;"></i>
+              <h2 style="font-size:1.5rem; margin:0.5rem 0 0.25rem;">85%</h2>
+              <p style="font-size:1rem; margin:0;">Success Rate</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Summary -->
+<section id="summary" class="container" data-aos="fade-up">
+  <div class="section-box">
+    <h3><i class="bi bi-card-text"></i> Resume Summary</h3>
+    <div class="alert alert-info">
+      Summary: "Dynamic computer science graduate skilled in Java, Python, and AI development."
+      <br>AI Score: <span class="badge bg-success">82 / 100</span> (Good Fit)
+    </div>
+    <iframe id="resumePreview" width="100%" height="200" style="border: 1px solid #ccc;"></iframe>
+  </div>
+</section>
+
+<!-- Improvements -->
+<section id="improvements" class="container" data-aos="fade-up">
+  <div class="section-box">
+    <h3><i class="bi bi-tools"></i> Improvement Suggestions</h3>
+    <div class="accordion" id="accordionTips">
+      <div class="accordion-item">
+        <h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">Grammar & Clarity</button></h2>
+        <div id="collapseOne" class="accordion-collapse collapse show">
+          <div class="accordion-body">Use active verbs like "developed", "led", "designed" instead of passive verbs.</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">Structure</button></h2>
+        <div id="collapseTwo" class="accordion-collapse collapse">
+          <div class="accordion-body">Group technical and soft skills separately; use consistent bullet points.</div>
+        </div>
+      </div>
+    </div>
+    <button id="generateBtn" class="btn btn-success mt-3"><i class="bi bi-stars"></i> Generate Improved Resume</button>
+  </div>
+</section>
+
+<!-- Matching -->
+<section id="matching" class="container" data-aos="fade-up">
+  <div class="section-box">
+    <h3><i class="bi bi-people-fill"></i> Job Matching</h3>
+    <div class="alert alert-secondary">
+      🟢 Matched Roles:
+      <ul>
+        <li>AI Research Assistant – <em>Broadcom</em></li>
+        <li>Machine Learning Intern – <em>Samsung</em></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Career Path -->
+<section id="career" class="container" data-aos="fade-up">
+  <div class="section-box">
+    <h3><i class="bi bi-bar-chart-steps"></i> Career Path Suggestions</h3>
+    <p>Consider progressing from AI Intern → AI Developer → AI Product Manager.</p>
+  </div>
+</section>
+
+<!-- Download -->
+<section id="downloadSection" class="container" data-aos="zoom-in">
+  <div class="section-box text-center">
+    <h5>🎉 Your improved resume is ready!</h5>
+    <a id="downloadBtn" class="btn btn-outline-primary" download="Improved_Resume.pdf"><i class="bi bi-download"></i> Download Improved Resume</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 mb-4">
+        <h5 class="footer-heading"><i class="bi bi-briefcase-fill"></i> Resume Matchmaker</h5>
+        <p class="footer-text">Empowering job seekers with AI-driven resume analysis and career guidance.</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/resume-matchmaker" target="_blank" class="social-link"><i class="bi bi-linkedin"></i></a>
+          <a href="https://twitter.com/resumematchmaker" target="_blank" class="social-link"><i class="bi bi-twitter"></i></a>
+          <a href="https://facebook.com/resumematchmaker" target="_blank" class="social-link"><i class="bi bi-facebook"></i></a>
+          <a href="https://instagram.com/resumematchmaker" target="_blank" class="social-link"><i class="bi bi-instagram"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-4 mb-4">
+        <h6 class="footer-heading">Quick Links</h6>
+        <ul class="footer-links">
+          <li><a href="#landing">Home</a></li>
+          <li><a href="#home">Analyze Resume</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-6 col-md-8 mb-4">
+        <h6 class="footer-heading">Newsletter</h6>
+        <p class="footer-text">Subscribe to get career tips and job opportunities.</p>
+        <form class="newsletter-form">
+          <div class="input-group">
+            <input type="email" class="form-control" placeholder="Enter your email">
+            <button class="btn btn-primary" type="submit">Subscribe</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <hr class="footer-divider">
+    <div class="footer-bottom">
+      <div class="row">
+        <div class="col-md-6">
+          <p class="copyright">© 2024 Resume Matchmaker. All rights reserved.</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <ul class="footer-bottom-links">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="script.js"></script>
+</body>
+</html> 
